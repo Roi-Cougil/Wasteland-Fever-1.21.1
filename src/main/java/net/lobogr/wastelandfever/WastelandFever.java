@@ -1,6 +1,8 @@
 package net.lobogr.wastelandfever;
 
+import net.lobogr.wastelandfever.block.ModBlocks;
 import net.lobogr.wastelandfever.creativetabs.ModCreativeTabs;
+import net.lobogr.wastelandfever.entity.ModEntities;
 import net.lobogr.wastelandfever.item.ModItems;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.api.distmarker.Dist;
@@ -53,6 +55,10 @@ public class WastelandFever {
 
         ModItems.register(modEventBus);
 
+        ModBlocks.register(modEventBus);
+
+        ModEntities.register(modEventBus);
+
         ModCreativeTabs.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
@@ -66,7 +72,6 @@ public class WastelandFever {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
     }
-
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
