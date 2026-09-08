@@ -21,6 +21,11 @@ public class ModItems {
             Item::new,
             new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)
     );
+    public static final Supplier<Item> FUSION_CORE = ITEMS.registerItem(
+            "fusion_core",
+            Item::new,
+            new Item.Properties().rarity(Rarity.RARE).stacksTo(1)
+    );
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

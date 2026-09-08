@@ -1,4 +1,7 @@
 {
   "item.wastelandfever.power_armor_frame_item": "Power armor frame",
-  "itemGroup.wastelandfever.power_armors": "Power armors"
+  "item.wastelandfever.fusion_core": "Fusion core",
+
+  "itemGroup.wastelandfever.power_armors": "Power armors",
+  "itemGroup.wastelandfever.wasteland_items": "Wasteland Items"
 }

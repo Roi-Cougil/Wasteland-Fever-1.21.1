@@ -22,6 +22,15 @@ public class ModCreativeTabs {
             } )
             .build()
     );
+    public static final Supplier<CreativeModeTab> WASTELAND_ITEMS = CREATIVE_MODE_TAB.register("wasteland_items", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup." + WastelandFever.MODID + ".wasteland_items"))
+            .icon(() -> new ItemStack(ModItems.FUSION_CORE.get()))
+            .displayItems((itemDisplayParameters, output) ->{
+                output.accept(ModItems.FUSION_CORE.get());
+            } )
+            .build()
+    );
+
 
     public static void register(IEventBus eventBus){
         CREATIVE_MODE_TAB.register(eventBus);
