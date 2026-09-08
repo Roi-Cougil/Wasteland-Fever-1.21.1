@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "wastelandfever:item/power_armor_frame_item"
+  }
+}
