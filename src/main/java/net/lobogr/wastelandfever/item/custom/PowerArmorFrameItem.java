@@ -1,12 +1,12 @@
 package net.lobogr.wastelandfever.item.custom;
 
 
+import net.lobogr.wastelandfever.entity.ModEntities;
+import net.lobogr.wastelandfever.entity.custom.PowerArmorFrame;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.item.Item;
 
 import net.minecraft.world.item.context.UseOnContext;
@@ -28,21 +28,22 @@ public class PowerArmorFrameItem extends Item {
 
             BlockPos spawnpos = clickpos.relative(face);
 
-            Cow entidad = EntityType.COW.create(serverLevel);
+            PowerArmorFrame powerArmor = ModEntities.POWER_ARMOR_FRAME.get().create(serverLevel);
 
-            if(entidad != null){
-                entidad.moveTo(spawnpos.getX() + 0.5, spawnpos.getY(), spawnpos.getZ() + 0.5, 0.0F, 0.0F);
+            if(powerArmor != null){
+                powerArmor.moveTo(spawnpos.getX() + 0.5, spawnpos.getY(), spawnpos.getZ() + 0.5, 0.0F, 0.0F);
 
-                serverLevel.addFreshEntity(entidad);
+                serverLevel.addFreshEntity(powerArmor);
 
                 if(!context.getPlayer().isCreative()){
                     context.getItemInHand().shrink(1);
                 }
-                return InteractionResult.SUCCESS;
+
             }
+
         }
 
 
-       return  InteractionResult.PASS;
+       return  InteractionResult.SUCCESS;
     }
 }
