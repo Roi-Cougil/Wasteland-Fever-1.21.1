@@ -2,6 +2,6 @@
   "item.wastelandfever.power_armor_frame_item": "Chasis de servoarmadura",
   "item.wastelandfever.fusion_core": "Núcleo de fusión",
 
-  "itemGroup.wastelandfever.power_armors": "Servoarmaduras",
-  "itemGroup.wastelandfever.wasteland_items": "Objetos del páramo"
+  "itemGroup.wastelandfever.power_armors": "WF - Servoarmaduras",
+  "itemGroup.wastelandfever.wasteland_items": "WF - Objetos del páramo"
 }
