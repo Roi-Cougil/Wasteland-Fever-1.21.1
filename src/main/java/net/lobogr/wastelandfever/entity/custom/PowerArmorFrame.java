@@ -2,22 +2,29 @@ package net.lobogr.wastelandfever.entity.custom;
 
 import net.lobogr.wastelandfever.item.ModItems;
 import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.Nullable;
 
 
 public class PowerArmorFrame extends Mob {
+
     public PowerArmorFrame(EntityType<? extends Mob> type, Level level) {
         super(type, level);
+    }
+
+    @Nullable
+    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent){
+        return null;
     }
 
     @Override
@@ -44,7 +51,7 @@ public class PowerArmorFrame extends Mob {
     public InteractionResult mobInteract(Player player, InteractionHand hand){
         if(player.isShiftKeyDown()){
             if(!this.level().isClientSide()){
-                if(player.isCreative()){
+                if(!player.isCreative()){
                     ItemStack itemDrop = new ItemStack((Holder<Item>) ModItems.POWER_ARMOR_FRAME_ITEM, 1);
                     this.spawnAtLocation(itemDrop);
 
@@ -52,6 +59,14 @@ public class PowerArmorFrame extends Mob {
                 this.discard();
             }
             return  InteractionResult.sidedSuccess(this.level().isClientSide());
+        }
+        else{
+            if(!this.level().isClientSide()){
+                player.startRiding(this);
+                return InteractionResult.SUCCESS;
+
+            }
+
         }
         return super.mobInteract(player, hand);
     }

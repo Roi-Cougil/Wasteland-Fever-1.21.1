@@ -3,7 +3,9 @@ package net.lobogr.wastelandfever;
 import net.lobogr.wastelandfever.block.ModBlocks;
 import net.lobogr.wastelandfever.creativetabs.ModCreativeTabs;
 import net.lobogr.wastelandfever.entity.ModEntities;
+import net.lobogr.wastelandfever.entity.client.PowerArmorRenderer;
 import net.lobogr.wastelandfever.item.ModItems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -80,7 +82,7 @@ public class WastelandFever {
     public static class  ClientModEvents {
         @SubscribeEvent
         public  static  void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(ModEntities.POWER_ARMOR_FRAME.get(), PowerArmorRenderer::new);
         }
     }
 }
